@@ -7,3 +7,5 @@ torch
 matplotlib
 jupyter
 tqdm
+seaborn
+joblib
