@@ -116,30 +116,21 @@ def vectorise_dataset(input_dir: Path, output_dir: Path,
     # ------------------------------------------------------------------
     X, y = df.drop(columns="label").values, df["label"].values
 
-    # ── SPLIT A ── 70 / 30 -------------------------------------------------------
-    sss_70_30 = StratifiedShuffleSplit(n_splits=1, test_size=0.30, random_state=42)
-    train_a_idx, test_a_idx = next(sss_70_30.split(X, y))
+    # ── SPLIT A ── 80 / 20 -------------------------------------------------------
+    sss_80_20 = StratifiedShuffleSplit(n_splits=1, test_size=0.20, random_state=42)
+    train_a_idx, test_a_idx = next(sss_80_20.split(X, y))
 
-    df.iloc[train_a_idx].to_csv(output_dir / "train70.csv", index=False)
-    df.iloc[test_a_idx].to_csv(output_dir / "test30.csv",  index=False)
-    print("[INFO] 70/30 split written: train70.csv  |  test30.csv")
+    df.iloc[train_a_idx].to_csv(output_dir / "train80.csv", index=False)
+    df.iloc[test_a_idx].to_csv(output_dir / "test20.csv",  index=False)
+    print("[INFO] 80/20 split written: train80.csv  |  test20.csv")
 
     # ── SPLIT B ── 80 / 10 / 10 ---------------------------------------------------
-    # Step 1 – hold out 10 % for test
-    sss_test = StratifiedShuffleSplit(n_splits=1, test_size=0.10, random_state=42)
-    temp_idx, test_b_idx = next(sss_test.split(X, y))
+    X_test, y_test =  df.iloc[test_a_idx].drop(columns="label").values,  df.iloc[test_a_idx]["label"].values
 
-    X_temp, y_temp = X[temp_idx], y[temp_idx]  # 90 % left
+    sss_test = StratifiedShuffleSplit(n_splits=1, test_size=0.50, random_state=42)
+    val_b_idx, test_b_idx = next(sss_test.split(X_test, y_test))
 
-    # Step 2 – from remaining 90 %, take 1/9 ≈ 10 % for validation
-    sss_val = StratifiedShuffleSplit(n_splits=1, test_size=0.1111, random_state=42)
-    train_b_idx, val_b_idx = next(sss_val.split(X_temp, y_temp))
 
-    # Map train / val indices back to original dataframe
-    train_b_idx = temp_idx[train_b_idx]
-    val_b_idx   = temp_idx[val_b_idx]
-
-    df.iloc[train_b_idx].to_csv(output_dir / "train80.csv", index=False)
     df.iloc[val_b_idx]  .to_csv(output_dir / "val10.csv",   index=False)
     df.iloc[test_b_idx] .to_csv(output_dir / "test10.csv",  index=False)
     print("[INFO] 80/10/10 split written: train80.csv | val10.csv | test10.csv")
