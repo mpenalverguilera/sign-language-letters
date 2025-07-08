@@ -11,15 +11,32 @@
   <!-- Hidden source video -->
   <video id="inputVideo" style="display:none" autoplay muted playsinline></video>
 
-  <!-- Output canvas (webcam + landmarks) -->
-  <canvas id="outputCanvas" width="640" height="480"></canvas>
+  <div class="container">
+    <!-- Left side: canvas + text -->
+    <div class="left-panel">
+      <canvas id="outputCanvas" width="640" height="480"></canvas>
+      <div id="typedText" contenteditable="false"></div>
+      <div id="log">waiting for camera permission…</div>
+    </div>
 
-  <!-- Real‑time text output -->
-  <div id="typedText" contenteditable="false"></div>
+    <!-- Right side: cheatsheet -->
+    <div class="right-panel">
+      <figure>
+        <img src="./assets/asl-cheatsheet.webp" alt="ASL Cheatsheet" />
+        <figcaption>
+          Approximate ASL cheat sheet.<br />
+          For reference gestures in training, see
+          <a href="https://www.kaggle.com/datasets/grassknoted/asl-alphabet" target="_blank" rel="noopener noreferrer">this dataset</a>.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
 
-  <div id="log">waiting for camera permission…</div>
 
   <!-- MediaPipe dependencies -->
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <!-- Predictor -->
   <script src="./hands-client.js"></script>
+</body>
+</html>

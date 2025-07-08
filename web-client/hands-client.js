@@ -108,7 +108,7 @@ async function initCamera() {
     await video.play();
     logArea.textContent = 'Camera ready – detecting…';
 
-    const cam = new Camera(video, { width: 640, height: 480, onFrame: async () => hands.send({ image: video }) });
+    const cam = new Camera(video, { width: 720, height: 540, onFrame: async () => hands.send({ image: video }) });
     cam.start();
   } catch (err) {
     logArea.textContent = 'Camera permission denied.';
