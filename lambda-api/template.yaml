@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ASL classifier – Lambda (container-based)
+
+Globals:
+  Function:
+    Timeout: 120
+    MemorySize: 1024
+
+Resources:
+  ASLApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors:
+        AllowOrigin: "'*'"
+        AllowMethods: "'POST,OPTIONS'"
+        AllowHeaders: "'Content-Type'"
+
+  PredictASLLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Events:
+        Predict:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ASLApi
+            Path: /predict
+            Method: post
+        Preflight:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ASLApi
+            Path: /predict
+            Method: options
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: .
