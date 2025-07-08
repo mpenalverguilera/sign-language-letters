@@ -1,4 +1,0 @@
-.env
-models
-.aws-sam
-*.toml

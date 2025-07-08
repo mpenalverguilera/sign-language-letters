@@ -1,8 +1,0 @@
-__pycache__/
-*.pyc
-data
-*.npy
-checkpoints/
-notebooks/.ipynb_checkpoints
-archive.zip
-models
