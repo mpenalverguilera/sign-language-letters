@@ -1,8 +1,9 @@
+core-model/notebooks/.ipynb_checkpoints
+core-model/data
+core-model/*.zip
+
 lambda-api/.env
 lambda-api/*.toml
 lambda-api/*.aws-sam
-
-core-model/data
-core-model/*.zip
 
 */models
