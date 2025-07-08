@@ -13,7 +13,7 @@ Resources:
     Properties:
       StageName: Prod
       Cors:
-        AllowOrigin: "'*'"
+        AllowOrigin: "https://mpenalverguilera.github.io"
         AllowMethods: "'POST,OPTIONS'"
         AllowHeaders: "'Content-Type'"
 

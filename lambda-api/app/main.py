@@ -11,7 +11,7 @@ IS_LOCAL = ENV == "local" or os.getenv("AWS_SAM_LOCAL") == "true"
 
 # ── CORS headers utility ─────────────────────────────────────
 CORS_HEADERS = {
-    "Access-Control-Allow-Origin":  "*",
+    "Access-Control-Allow-Origin":  "https://mpenalverguilera.github.io",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Content-Type": "application/json"
