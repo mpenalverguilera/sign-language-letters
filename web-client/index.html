@@ -2,25 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ASL Landmark Capture (Demo)</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; }
-    canvas { width: 640px; height: 480px; border: 1px solid #ccc; }
-    #log { margin-top: 1rem; font-size: 0.9rem; white-space: pre; }
-  </style>
+  <title>ASL Sign‑to‑Text Demo</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <h1>ASL Landmark Capture (Demo)</h1>
+  <h1>ASL Sign‑to‑Text Demo</h1>
 
-  <video id="inputVideo" style="display: none;" autoplay playsinline></video>
-  <canvas id="outputCanvas"></canvas>
+  <!-- Hidden source video -->
+  <video id="inputVideo" style="display:none" autoplay muted playsinline></video>
+
+  <!-- Output canvas (webcam + landmarks) -->
+  <canvas id="outputCanvas" width="640" height="480"></canvas>
+
+  <!-- Real‑time text output -->
+  <div id="typedText" contenteditable="false"></div>
+
   <div id="log">waiting for camera permission…</div>
 
   <!-- MediaPipe dependencies -->
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
-
-  <!-- Tu script -->
-  <script src="hands-client.js"></script>
-</body>
-</html>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="./hands-client.js"></script>
