@@ -2,8 +2,10 @@ body {
   font-family: system-ui, Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 1.5rem;
+  height: 100vh;
   margin: 0;
   padding: 2rem;
   background: #121212;
@@ -44,45 +46,32 @@ canvas {
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.left-panel {
+.center-panel {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
-}
-
-.right-panel {
   text-align: center;
 }
 
-.right-panel figure {
-  margin-top: 0;
-}
-
-.right-panel img {
-  width: 80%;
-  border-radius: 0.75rem;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-}
-
-.right-panel figcaption {
-  margin-top: 0.75rem;
+.reference {
+  max-width: 720px;
   font-size: 1rem;
-  color: #eee;
+  color: #ccc;
 }
 
-.right-panel a {
+.reference a {
   color: #e0e0e0;
   font-weight: bold;
   text-decoration: none;
 }
 
-.right-panel a:hover {
+.reference a:hover {
   text-decoration: underline;
 }
