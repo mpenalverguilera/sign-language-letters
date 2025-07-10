@@ -11,9 +11,9 @@ Resources:
   ASLApi:
     Type: AWS::Serverless::Api
     Properties:
-      StageName: Prod
+      StageName: Develop
       Cors:
-        AllowOrigin: "https://mpenalverguilera.github.io"
+        AllowOrigin: "'*'"
         AllowMethods: "'POST,OPTIONS'"
         AllowHeaders: "'Content-Type'"
 

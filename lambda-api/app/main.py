@@ -11,7 +11,7 @@ IS_LOCAL = ENV == "local" or os.getenv("AWS_SAM_LOCAL") == "true"
 
 # ── CORS headers utility ─────────────────────────────────────
 CORS_HEADERS = {
-    "Access-Control-Allow-Origin":  "https://mpenalverguilera.github.io",
+    "Access-Control-Allow-Origin":  "*",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Content-Type": "application/json"
@@ -40,9 +40,6 @@ def lambda_handler(event, context):
     # Only allow POST method
     if event.get("httpMethod") != "POST":
         return cors_response(405, {"error": "Method not allowed"})
-
-    if IS_LOCAL:
-        print("[DEBUG] Trying event:\n\n")
 
     try:
         body = json.loads(event.get("body", "{}"))

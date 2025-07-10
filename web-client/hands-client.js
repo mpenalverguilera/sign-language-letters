@@ -5,7 +5,7 @@
     • Only accept predictions whose confidence ≥ CONF_THRESHOLD.
     • Debounce so we don't append same letter repeatedly.
 --------------------------------------------------------------*/
-const BACKEND_URL    = "https://l3eygbhqj0.execute-api.eu-west-3.amazonaws.com/Prod/predict";
+const BACKEND_URL    = "http://127.0.0.1:3000/predict";
 const SEND_EVERY_MS  = 500;      // interval between attempts
 const THRESHOLD      = 0.01;     // mean L2 distance threshold
 const CONF_THRESHOLD = 0.75;     // min confidence to accept
