@@ -12,26 +12,19 @@
   <video id="inputVideo" style="display:none" autoplay muted playsinline></video>
 
   <div class="container">
-    <!-- Left side: canvas + text -->
-    <div class="left-panel">
+    <div class="center-panel">
       <canvas id="outputCanvas" width="640" height="480"></canvas>
       <div id="typedText" contenteditable="false"></div>
       <div id="log">waiting for camera permission…</div>
-    </div>
-
-    <!-- Right side: cheatsheet -->
-    <div class="right-panel">
-      <figure>
-        <img src="./assets/asl-cheatsheet.webp" alt="ASL Cheatsheet" />
-        <figcaption>
-          Approximate ASL cheat sheet.<br />
-          For reference gestures in training, see
+      <div class="reference">
+        <p>
+          This demo uses gestures inspired by the American Sign Language (ASL) alphabet.
+          For reference gestures used in training, see
           <a href="https://www.kaggle.com/datasets/grassknoted/asl-alphabet" target="_blank" rel="noopener noreferrer">this dataset</a>.
-        </figcaption>
-      </figure>
+        </p>
+      </div>
     </div>
   </div>
-
 
   <!-- MediaPipe dependencies -->
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
