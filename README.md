@@ -2,6 +2,8 @@
 
 *Real‑time demo that detects a single hand in webcam video, predicts American Sign Language (ASL) letters with a Random Forest model, and types the recognised text in the browser.*
 
+Live 👉 **[https://mpenalverguilera.github.io/sign-language-letters/](https://mpenalverguilera.github.io/sign-language-letters/)**
+
 ---
 
 ## ✨ Introduction
@@ -85,9 +87,6 @@
 ---
 
 ## 🌐 Front‑end – GitHub Pages Demo
-
-Live 👉 **[https://mpenalverguilera.github.io/sign-language-letters/](https://mpenalverguilera.github.io/sign-language-letters/)**
-
 The browser:
 
 - Captures video with `MediaPipe Hands`
